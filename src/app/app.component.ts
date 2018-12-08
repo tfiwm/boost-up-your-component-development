@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'boost-up-your-component-development2';
+  title = 'boost-up-your-component-development';
 }

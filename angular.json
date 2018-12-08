@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "boost-up-your-component-development2": {
+    "boost-up-your-component-development": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/boost-up-your-component-development2",
+            "outputPath": "dist/boost-up-your-component-development",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "boost-up-your-component-development2:build"
+            "browserTarget": "boost-up-your-component-development:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "boost-up-your-component-development2:build:production"
+              "browserTarget": "boost-up-your-component-development:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "boost-up-your-component-development2:build"
+            "browserTarget": "boost-up-your-component-development:build"
           }
         },
         "test": {
@@ -104,7 +104,7 @@
         }
       }
     },
-    "boost-up-your-component-development2-e2e": {
+    "boost-up-your-component-development-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -113,11 +113,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "boost-up-your-component-development2:serve"
+            "devServerTarget": "boost-up-your-component-development:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "boost-up-your-component-development2:serve:production"
+              "devServerTarget": "boost-up-your-component-development:serve:production"
             }
           }
         },
@@ -184,5 +184,5 @@
       }
     }
   },
-  "defaultProject": "boost-up-your-component-development2"
+  "defaultProject": "boost-up-your-component-development"
 }
