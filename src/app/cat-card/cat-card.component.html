@@ -1,13 +1,19 @@
 <mat-card class="cat-card">
   <mat-card-header>
     <mat-card-title>
+      <span *ngIf="cat.gender === 'male'">👔</span>
+      <span *ngIf="cat.gender === 'female'">👗</span>
       {{cat.name}}
     </mat-card-title>
   </mat-card-header>
   <img mat-card-image [src]="cat.image" [alt]="cat.name">
   <mat-card-content class="cat-card-content">
-    <p>
+    <p *ngIf="cat.description; else addDescription">
       {{cat.description}}
     </p>
   </mat-card-content>
 </mat-card>
+
+<ng-template #addDescription>
+  <button mat-raised-button color="primary">Add Description</button>
+</ng-template>
