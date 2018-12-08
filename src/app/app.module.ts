@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CatCardComponent } from './cat-card/cat-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CatCardComponent
   ],
   imports: [
     BrowserModule,
