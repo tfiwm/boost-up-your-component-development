@@ -28,7 +28,7 @@ const cats: Cat[] = [
   {
     name: 'Pitbull',
     image: 'https://public-vapxwpcpxj.now.sh/pitbull.png',
-    description: 'Sounds like a Porsche :)'
+    description: 'As loud as a Porsche :)'
   },
   {
     name: 'Pumpkin',
