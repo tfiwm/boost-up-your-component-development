@@ -4,7 +4,7 @@ import { PlaygroundModule } from 'angular-playground';
 PlaygroundModule
   .configure({
     selector: 'app-root',
-    overlay: false,
+    overlay: true,
     modules: []
   });
 
