@@ -1,17 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cat } from '../model/cat.model';
-import { trigger, transition, animate, style, keyframes, state } from '@angular/animations';
+import { Select, Store } from '@ngxs/store';
+import { AppState } from '../state/app.state';
+import { Observable } from 'rxjs';
+import { DeleteCat } from '../state/app.actions';
 
 @Component({
   selector: 'app-cat-card',
   templateUrl: './cat-card.component.html',
   styleUrls: ['./cat-card.component.scss']
 })
-export class CatCardComponent implements OnInit {
+export class CatCardComponent {
   @Input() cat: Cat;
-  @Input() deleteMode = false;
+  @Select(AppState.deleteMode) deleteMode$: Observable<boolean>;
 
-  constructor() {}
+  constructor(private store: Store) {}
 
-  ngOnInit() {}
+  onDelete() {
+    this.store.dispatch(new DeleteCat(this.cat));
+  }
 }

@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { CatPageService } from './cat-page.service';
+import { Component } from '@angular/core';
 import { Cat } from '../model/cat.model';
-import { Observable, Subject, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AppState } from '../state/app.state';
+import { Select, Store } from '@ngxs/store';
+import { LoadCats } from '../state/app.actions';
 
 @Component({
   selector: 'app-cat-page',
   templateUrl: './cat-page.component.html',
   styleUrls: ['./cat-page.component.scss']
 })
-export class CatPageComponent implements OnInit {
-  cats$: Observable<Cat[]>;
+export class CatPageComponent {
+  @Select(AppState.catList) cats$: Observable<Cat[]>;
 
-  errorLoadingCats$: Subject<boolean> = new Subject();
+  @Select(AppState.errorCatList) errorLoadingCats$: Observable<boolean>;
 
-  constructor(catPageService: CatPageService) {
-    this.cats$ = catPageService.getCats().pipe(
-      catchError(() => {
-        this.errorLoadingCats$.next(true);
-        return of([]);
-      })
-    );
+  constructor(private store: Store) {
+    this.store.dispatch(new LoadCats());
   }
-
-  ngOnInit() {}
 }

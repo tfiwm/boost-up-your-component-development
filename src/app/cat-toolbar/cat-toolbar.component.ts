@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ToggleDeleteMode } from '../state/app.actions';
 
 @Component({
   selector: 'app-cat-toolbar',
   templateUrl: './cat-toolbar.component.html',
   styleUrls: ['./cat-toolbar.component.scss']
 })
-export class CatToolbarComponent implements OnInit {
+export class CatToolbarComponent {
+  constructor(private store: Store) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  toogleDeleteMode() {
+    this.store.dispatch(new ToggleDeleteMode());
   }
-
 }

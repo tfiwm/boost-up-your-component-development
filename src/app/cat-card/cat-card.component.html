@@ -1,6 +1,6 @@
-<mat-card class="cat-card" [class.cat-card--shake]="deleteMode">
-  <div class="cat-card__delete" *ngIf="deleteMode">
-    <button mat-mini-fab>
+<mat-card class="cat-card" [class.cat-card--shake]="deleteMode$ | async">
+  <div class="cat-card__delete" *ngIf="deleteMode$ | async">
+    <button mat-mini-fab (click)="onDelete()">
         <mat-icon>delete</mat-icon>
     </button>
   </div>
