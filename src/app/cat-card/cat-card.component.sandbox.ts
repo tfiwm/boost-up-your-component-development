@@ -60,7 +60,7 @@ export default sandboxOf(CatCardComponent, {
   .add('delete', {
     template: `
     <div style="width: 300px; padding: 50px;">
-      <app-cat-card [deleteMode]="true" [cat]="cat"></app-cat-card>
+      <app-cat-card [cat]="cat"></app-cat-card>
     </div>
   `,
     context: {
