@@ -1,2 +1,3 @@
 <app-cat-toolbar></app-cat-toolbar>
-<app-cat-list [cats]="cats$ | async"></app-cat-list>
+<mat-card class="cat-error" *ngIf="errorLoadingCats$ | async">An error occured! Please try it again later ;)</mat-card>
+<app-cat-list *ngIf="cats$ | async as cats" [cats]="cats"></app-cat-list>
