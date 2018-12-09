@@ -1,13 +1,31 @@
-.more-button {
-    position: absolute;
-    top: 5px;
-    right: 10px;
+.cat-card {
+    position: relative;
+
+    &--shake {
+        animation: shake 0.3s infinite;
+    }
+
+    &__content {
+        text-align: center;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    &__delete {
+        position: absolute;
+        right: -12px;
+        top: -12px;
+    }
 }
 
-.cat-card-content {
-    text-align: center;
+@keyframes shake {
+    50% {
+        transform: rotate(0.3deg);
+    }
 
-    button {
-        width: 100%;
+    100% {
+        transform: rotate(-0.3deg);
     }
 }

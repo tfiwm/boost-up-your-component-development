@@ -1,4 +1,9 @@
-<mat-card class="cat-card">
+<mat-card class="cat-card" [class.cat-card--shake]="deleteMode">
+  <div class="cat-card__delete" *ngIf="deleteMode">
+    <button mat-mini-fab>
+        <mat-icon>delete</mat-icon>
+    </button>
+  </div>
   <mat-card-header>
     <mat-card-title>
       <span *ngIf="cat.gender === 'male'">👔</span>
@@ -7,7 +12,7 @@
     </mat-card-title>
   </mat-card-header>
   <img mat-card-image [src]="cat.image" [alt]="cat.name">
-  <mat-card-content class="cat-card-content">
+  <mat-card-content class="cat-card__content">
     <p *ngIf="cat.description; else addDescription">
       {{cat.description}}
     </p>

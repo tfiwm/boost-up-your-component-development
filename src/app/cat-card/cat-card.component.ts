@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Cat } from '../model/cat.model';
+import { trigger, transition, animate, style, keyframes, state } from '@angular/animations';
 
 @Component({
   selector: 'app-cat-card',
@@ -8,6 +9,7 @@ import { Cat } from '../model/cat.model';
 })
 export class CatCardComponent implements OnInit {
   @Input() cat: Cat;
+  @Input() deleteMode = false;
 
   constructor() {}
 
