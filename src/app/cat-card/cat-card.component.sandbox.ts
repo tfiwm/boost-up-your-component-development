@@ -2,6 +2,9 @@ import { sandboxOf } from 'angular-playground';
 import { CatCardComponent } from './cat-card.component';
 import { Cat } from '../model/cat.model';
 import { MatCardModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { Store, NgxsModule } from '@ngxs/store';
+import { AppState } from '../state/app.state';
+import { PlaygroundSetupService } from 'src/playground-helper';
 
 const cat: Cat = {
   name: 'Daria',
@@ -10,7 +13,7 @@ const cat: Cat = {
 };
 
 export default sandboxOf(CatCardComponent, {
-  imports: [MatCardModule, MatIconModule, MatButtonModule]
+  imports: [MatCardModule, MatIconModule, MatButtonModule, NgxsModule.forFeature([AppState])]
 })
   .add('default', {
     template: `
@@ -62,8 +65,22 @@ export default sandboxOf(CatCardComponent, {
     <div style="width: 300px; padding: 50px;">
       <app-cat-card [cat]="cat"></app-cat-card>
     </div>
+    <app-playground-setup></app-playground-setup>
   `,
     context: {
       cat
-    }
+    },
+    providers: [
+      {
+        provide: PlaygroundSetupService,
+        useFactory: (store: Store) => {
+          store.reset({
+            app: {
+              deleteMode: true
+            }
+          });
+        },
+        deps: [Store]
+      }
+    ]
   });
