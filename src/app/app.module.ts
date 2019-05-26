@@ -12,6 +12,8 @@ import { CatPageComponent } from './cat-page/cat-page.component';
 import { CatPageService } from './cat-page/cat-page.service';
 import { AppState } from './state/app.state';
 import { environment } from 'src/environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, CatCardComponent, CatListComponent, CatToolbarComponent, CatPageComponent],
@@ -22,7 +24,8 @@ import { environment } from 'src/environments/environment';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    NgxsModule.forRoot([AppState], { developmentMode: !environment.production })
+    NgxsModule.forRoot([AppState], { developmentMode: !environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [CatPageService],
   bootstrap: [AppComponent]
