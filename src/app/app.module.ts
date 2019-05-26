@@ -11,7 +11,6 @@ import { CatToolbarComponent } from './cat-toolbar/cat-toolbar.component';
 import { CatPageComponent } from './cat-page/cat-page.component';
 import { CatPageService } from './cat-page/cat-page.service';
 import { AppState } from './state/app.state';
-import { environment } from 'src/environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
